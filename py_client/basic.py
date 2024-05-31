@@ -1,7 +1,7 @@
 from requests import get
 
 # endpoint = "https://www.github.com"
-endpoint = "http://localhost:8080"
+endpoint = "http://localhost:8000/api"
 
 get_response = get(endpoint)
-print(get_response.text)
+print(get_response.json())
