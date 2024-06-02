@@ -21,3 +21,17 @@ class ProductDetailAPIView(generics.RetrieveAPIView):
     # lookup_field = pk
     
 product_detail_view = ProductDetailAPIView.as_view()
+
+
+class ProductListAPIView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    
+    def perform_create(self, serializer):
+        # serializer.save(user=self.request.user)
+        "NOT GONNA USE THIS METHOD!"
+        print(serializer.validated_data)
+        serializer.save()
+        pass
+    
+product_list_view = ProductListAPIView.as_view()
